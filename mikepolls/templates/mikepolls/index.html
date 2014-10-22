@@ -1,0 +1,12 @@
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'mikepolls/style.css' %}" />
+
+{% if questions %}
+    <ul>
+    {% for question in questions %}
+        <li><a href="{% url 'mikepolls:detail' question.id %}">{{ question.question_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <h1>No polls availiable yet</h1>
+{% endif %}
